@@ -34,6 +34,11 @@ To install the app on Linux via terminal, execute the following commands with <k
 
 **Note**: if you use the external SFML package, add <kbd>-I[SFML include directory]</kbd> and <kbd>-L[SFML lib directory]</kbd> options to <kbd>g++ [...]</kbd> line in the *Makefile* and execute <kbd>export LD_LIBRARY_PATH=[SFML lib directory]</kbd> command before launching the application.
 
+## Support this project
+
+💰 Bitcoin:
+<kbd>bc1qlf4w9kc0dg9wslswceqct0e2ha2wv8xz3ygrgh</kbd>
+
 ## Screenshots
 
 ![Image 0](demo/screenshot_00.png)
