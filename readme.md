@@ -1,6 +1,8 @@
 <img src="Resources/Textures/icon.png" alt="logo" width="60"/>
 
-# Snatan
+# BulletWorm
+
+Formerly called Snatan.
 
 ✳ Puzzle-like levels of two difficulties<br/>
 ✳ Colorful design<br/>
