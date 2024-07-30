@@ -2,11 +2,10 @@
 
 # BulletWorm
 
-Formerly called Snatan.
-
 ✳ Puzzle-like levels of two difficulties<br/>
-✳ Colorful design<br/>
 ✳ Outstanding soundtrack borrowed from [Kevin MacLeod](http://incompetech.com/) (see the [credits](Resources/Music/license.txt))
+
+Formerly called Snatan.
 
 ## Presentation
 
@@ -36,7 +35,7 @@ To install the app on Linux via terminal, execute the following commands with <k
 
 **Note**: if you use the external SFML package, add <kbd>-I[SFML include directory]</kbd> and <kbd>-L[SFML lib directory]</kbd> options to <kbd>g++ [...]</kbd> line in the *Makefile* and execute <kbd>export LD_LIBRARY_PATH=[SFML lib directory]</kbd> command before launching the application.
 
-## Support this project
+## Support the author
 
 💰 Bitcoin:
 <kbd>bc1qlf4w9kc0dg9wslswceqct0e2ha2wv8xz3ygrgh</kbd>
