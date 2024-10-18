@@ -17,8 +17,6 @@ To install the app on Linux via terminal, execute the following commands with <k
 
 ![Image 1](demo/screenshot_01.jpg)
 
-![Image 2](demo/screenshot_02.jpg)
-
 ![Image 3](demo/screenshot_03.jpg)
 
 ![Image 4](demo/screenshot_04.jpg)
