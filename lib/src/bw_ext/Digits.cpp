@@ -28,29 +28,33 @@
 #include <cassert>
 
 namespace Bulletworm {
+
 Digits::Digits() noexcept :
+    m_vertices(),
+    m_zeroRect(),
     m_count(0),
-    m_isNumberVertical(false),
-    m_isTextureVertical(false),
     m_texture(nullptr),
-    m_vertices(),
-    m_zeroRect() {}
+    m_isTextureVertical(false),
+    m_isNumberVertical(false) {}
+
 Digits::Digits(const sf::Texture& texture) noexcept :
-    m_count(0),
-    m_isNumberVertical(false),
-    m_isTextureVertical(false),
-    m_texture(&texture),
     m_vertices(),
-    m_zeroRect() {}
-Digits::Digits(const sf::Texture& texture, const sf::IntRect& zeroRect, std::size_t count) :
-    m_count(),
-    m_isNumberVertical(false),
-    m_isTextureVertical(false),
+    m_zeroRect(),
+    m_count(0),
     m_texture(&texture),
+    m_isTextureVertical(false),
+    m_isNumberVertical(false) {}
+
+Digits::Digits(const sf::Texture& texture, const sf::IntRect& zeroRect, std::size_t count) :
     m_vertices(count * 6),
-    m_zeroRect(zeroRect) {
+    m_zeroRect(zeroRect),
+    m_count(),
+    m_texture(&texture),
+    m_isTextureVertical(false),
+    m_isNumberVertical(false) {
     setDigitCount(count);
 }
+
 void Digits::setTexture(const sf::Texture& texture) noexcept {
     m_texture = &texture;
 }

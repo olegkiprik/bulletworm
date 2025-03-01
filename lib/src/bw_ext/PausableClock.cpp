@@ -34,11 +34,11 @@ PausableClock::PausableClock() noexcept :
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 PausableClock::PausableClock(Status status) noexcept :
-	m_status(status),
 	m_begin(clock_t::now()),
-	m_pauseDuration() {}
+	m_pauseDuration(),	
+	m_status(status) {}
 
-
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void PausableClock::pause() noexcept {
 	if (m_status == Status::Running) {

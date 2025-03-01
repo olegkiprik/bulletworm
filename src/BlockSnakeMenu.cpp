@@ -55,16 +55,6 @@
 #include <filesystem>
 #include <cstring>
 
-namespace {
-
-    void reportDebug(const char* str) {
-    #ifndef NDEBUG
-        std::cout << str << std::endl;
-    #endif // NDEBUG
-    }
-    
-}
-
 namespace Bulletworm {
 
 LevelMenuCommand BlockSnake::selectLevel() {
@@ -1118,10 +1108,12 @@ StatisticMenu BlockSnake::statisticMenu(bool completed) {
     }
 
     if (timeConverted1[4] ||
+        (
         !timeConverted1[0] &&
         !timeConverted1[1] &&
         !timeConverted1[2] &&
-        !timeConverted1[3]) {
+        !timeConverted1[3]
+    )) {
         countableStr += ' ' + std::to_string(timeConverted1[4]) + ' ' +
             getWord(lng, Word(int(Word::SecondsSingleLS) +
                     int(linguisticCountType(timeConverted1[4]))));
@@ -1158,10 +1150,12 @@ StatisticMenu BlockSnake::statisticMenu(bool completed) {
                     int(linguisticCountType(timeConverted1[3]))));
     }
     if (timeConverted1[4] ||
+        (
         !timeConverted1[0] &&
         !timeConverted1[1] &&
         !timeConverted1[2] &&
-        !timeConverted1[3]) {
+        !timeConverted1[3]
+    )) {
         countableStr += ' ' + std::to_string(timeConverted1[4]) + ' ' +
             getWord(lng, Word(int(Word::SecondsSingleLS) +
                     int(linguisticCountType(timeConverted1[4]))));

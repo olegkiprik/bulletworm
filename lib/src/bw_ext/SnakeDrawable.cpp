@@ -30,6 +30,7 @@
 
 namespace {
 
+#if 0
 float getPolarLerp(float r1, float r2, float r12angle, float r1xangle) {
     return (r1 * r2 * std::sin(r12angle) / (r1 * std::sin(r1xangle) + r2 * std::sin(r12angle - r1xangle)));
 }
@@ -48,6 +49,7 @@ float getCurrentRadius(float angleInRad, float rad_gr, float rad_ls) {
         return getPolarLerp(rad_gr, rad_ls, 36 * pi / 180, pi* angle5 / 180);
     }
 }
+#endif
 
 } // namespace
 

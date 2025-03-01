@@ -313,8 +313,6 @@ void SnakeWorld::placePowerup(Randomizer& positionRandomizer, PowerupType certai
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void SnakeWorld::removeItem(const sf::Vector2i& position) {
-    const auto& mapSize = getMapSize();
-
     auto fruitFound = m_fruitPositions.find(position);
     auto bonusFound = m_bonusPositions.find(position);
     auto powerupFound = m_powerupPositions.find(position);
@@ -336,8 +334,6 @@ void SnakeWorld::removeItem(const sf::Vector2i& position) {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void SnakeWorld::clearBonuses() noexcept {
-    const auto& mapSize = getMapSize();
-
     for (const auto& now : m_bonusPositions)
         if (now != m_snakePosition &&
             m_tailIDs.getList(now).empty())
@@ -349,8 +345,6 @@ void SnakeWorld::clearBonuses() noexcept {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void SnakeWorld::clearPowerups() noexcept {
-    const auto& mapSize = getMapSize();
-
     for (const auto& now : m_powerupPositions)
         if (now.first != m_snakePosition &&
             m_tailIDs.getList(now.first).empty())
@@ -365,7 +359,6 @@ std::uintmax_t SnakeWorld::getTailSize() const noexcept {
     if (m_previousSnakeDirection == Direction::Count)
         return 0;
 
-    const sf::Vector2u& mapSize = getMapSize();
     sf::Vector2i neckPos = getNeckPosition();
     const auto& neck = m_tailIDs.getList(neckPos);
 
@@ -431,16 +424,16 @@ void SnakeWorld::openAccess(int x, int y) noexcept {
 
 
 SnakeWorld::SnakeWorld(SnakeWorld&& src) noexcept :
-    m_backPosition(src.m_backPosition),
-    m_bonusPositions(std::move(src.m_bonusPositions)),
-    m_fruitPositions(std::move(src.m_fruitPositions)),
-    m_initItemProbabilities(std::move(src.m_initItemProbabilities)),
+    m_tailIDs(std::move(src.m_tailIDs)),
     m_itemProbabilities(std::move(src.m_itemProbabilities)),
+    m_fruitPositions(std::move(src.m_fruitPositions)),
+    m_bonusPositions(std::move(src.m_bonusPositions)),
     m_powerupPositions(std::move(src.m_powerupPositions)),
-    m_previousSnakeDirection(src.m_previousSnakeDirection),
-    m_snakePosition(src.m_snakePosition),
+    m_initItemProbabilities(std::move(src.m_initItemProbabilities)),
     m_stepCount(src.m_stepCount),
-    m_tailIDs(std::move(src.m_tailIDs)) {
+    m_snakePosition(src.m_snakePosition),
+    m_backPosition(src.m_backPosition),
+    m_previousSnakeDirection(src.m_previousSnakeDirection) {
     src.m_stepCount = 0;
 }
 

@@ -34,20 +34,21 @@ namespace Bulletworm {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ObjectBehavior::ObjectBehavior() noexcept :
-    m_properties(),
-    m_parameterType(ObjectParameterType::NoParameter),
-    m_commands(),
     m_conditionExpressions(),
-    m_modifyExpressions() {}
+    m_modifyExpressions(),
+    m_commands(),
+    m_properties(),
+    m_parameterType(ObjectParameterType::NoParameter)
+{}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ObjectBehavior::ObjectBehavior(ObjectBehavior&& src) noexcept :
-    m_commands(std::move(src.m_commands)),
     m_conditionExpressions(std::move(src.m_conditionExpressions)),
     m_modifyExpressions(std::move(src.m_modifyExpressions)),
-    m_parameterType(src.m_parameterType),
-    m_properties(std::move(src.m_properties)) {
+    m_commands(std::move(src.m_commands)),
+    m_properties(std::move(src.m_properties)),
+    m_parameterType(src.m_parameterType) {
     src.m_properties.reset();
     src.m_parameterType = ObjectParameterType::NoParameter;
 }

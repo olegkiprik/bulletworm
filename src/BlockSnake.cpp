@@ -57,12 +57,6 @@
 
 namespace {
 
-void reportDebug(const char* str) {
-#ifndef NDEBUG
-    std::cout << str << std::endl;
-#endif // NDEBUG
-}
-
 void fwkCreate(std::vector<std::uintmax_t>& vec, const std::uint32_t* values,
                std::size_t sz) {
     using fwt = Bulletworm::FenwickTree<std::vector<std::uintmax_t>::iterator,
@@ -1357,7 +1351,7 @@ sf::IntRect BlockSnake::getInnerVisibleZone() const {
     rightDownInMap.x += plotPtr[(int)LevelPlotDataEnum::SnakeSightX];
     rightDownInMap.y += plotPtr[(int)LevelPlotDataEnum::SnakeSightY];
 
-    bool cameraStopped = isCameraStopped(m_nowTime);
+    bool cameraStopped = isCameraStopped();
 
     if (!cameraStopped) {
         switch (m_game.getImpl().getSnakeWorld().getPreviousDirection()) {
@@ -1405,7 +1399,7 @@ sf::IntRect BlockSnake::getInnerVisibleZone() const {
 }
 
 
-bool BlockSnake::isCameraStopped(sf::Int64 nowTime) const {
+bool BlockSnake::isCameraStopped() const {
     // detect whether the camera has stopped
 
     // some info
@@ -1723,8 +1717,6 @@ void BlockSnake::updateUnits() {
 
 
 void BlockSnake::updateSnakeDrawable() {
-    const sf::Vector2u& mapSize = m_levels.getMapSize(m_difficulty, m_levelIndex);
-
     sf::IntRect innerZone = getInnerVisibleZone();
     sf::Vector2i leftTopInMap(innerZone.left, innerZone.top);
     sf::Vector2i rightDownInMap =
@@ -2022,11 +2014,6 @@ void BlockSnake::drawWindow() {
     const Vci& snakePosition = snakeWorld.getCurrentSnakePosition();
     sf::IntRect innerZone = getInnerVisibleZone();
     Vci leftTopInMap(innerZone.left, innerZone.top);
-
-    Vci rightDownInMap = leftTopInMap +
-        Vci(innerZone.width, innerZone.height) -
-        Vci(1, 1);
-
     Vci snakePositionInViewBiased = snakePosition - leftTopInMap + Vci(1, 1);
 
     sf::Vector2f currentSnakePosPtrPos;
@@ -2358,7 +2345,7 @@ sf::Vector2f BlockSnake::getCameraBias(sf::Int64 now) const {
     sf::Int64 factualSnakePeriod = m_game.getImpl().getFactualSnakePeriod();
 
     if (!m_game.getImpl().isSnakeMoving()
-        && !isCameraStopped(now)) {
+        && !isCameraStopped()) {
         
         if (delta >= factualSnakePeriod) {
             switch (m_game.getImpl().getSnakeWorld().getPreviousDirection()) {
@@ -2397,7 +2384,7 @@ sf::Vector2f BlockSnake::getCameraBias(sf::Int64 now) const {
     sf::Vector2i mapSize{ m_levels.getMapSize(m_difficulty, m_levelIndex) };
     const sf::Vector2i& snakePosition = m_game.getImpl().getSnakeWorld().getCurrentSnakePosition();
 
-    if (isCameraStopped(now)) {
+    if (isCameraStopped()) {
         if (delta >= factualSnakePeriod) 
         {
             switch (m_game.getImpl().getSnakeWorld().getPreviousDirection()) {
@@ -2464,7 +2451,7 @@ void BlockSnake::updateItems(EatableItem item) {
     snakeFullViewSize.x = plotPtr[(int)LevelPlotDataEnum::SnakeSightX] * 2 + 1;
     snakeFullViewSize.y = plotPtr[(int)LevelPlotDataEnum::SnakeSightY] * 2 + 1;
 
-    bool cameraStopped = isCameraStopped(m_nowTime);
+    bool cameraStopped = isCameraStopped();
     sf::IntRect innerZone = getInnerVisibleZone();
 
     Direction tailing = Direction::Count;
@@ -2485,10 +2472,6 @@ void BlockSnake::updateItems(EatableItem item) {
             break;
         }
     }
-
-    sf::Vector2i rightDownInMap = leftTopInMap +
-        sf::Vector2i(innerZone.width, innerZone.height) -
-        sf::Vector2i(1, 1);
 
     sf::Vector2i innerZoneSize(innerZone.width, innerZone.height);
 

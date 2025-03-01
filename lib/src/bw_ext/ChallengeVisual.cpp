@@ -33,10 +33,10 @@ namespace Bulletworm {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ChallengeVisual::ChallengeVisual(ChallengeVisual&& src) noexcept :
     m_vertices(std::move(src.m_vertices)),
-    m_color(src.m_color),
+    m_visibleCount(src.m_visibleCount),
     m_count(src.m_count),
-    m_radius(src.m_radius),
-    m_visibleCount(src.m_visibleCount) {
+    m_color(src.m_color),
+    m_radius(src.m_radius) {
     src.m_color = sf::Color(255, 255, 255).toInteger();
     src.m_count = 0;
     src.m_visibleCount = 0;
@@ -63,11 +63,12 @@ ChallengeVisual& ChallengeVisual::operator=(ChallengeVisual&& src) noexcept {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ChallengeVisual::ChallengeVisual() noexcept :
-    m_radius(0),
     m_vertices(),
     m_visibleCount(0),
     m_count(0),
-    m_color(sf::Color(255, 255, 255).toInteger()) {}
+    m_color(sf::Color(255, 255, 255).toInteger()),
+    m_radius(0)
+{}
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -77,11 +78,11 @@ ChallengeVisual::ChallengeVisual(float radius, std::size_t count) :
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 ChallengeVisual::ChallengeVisual(float radius, std::size_t count, std::size_t visibleCount) :
-    m_radius(radius),
     m_vertices(),
     m_visibleCount(visibleCount),
     m_count(count),
-    m_color(sf::Color(255, 255, 255).toInteger()) {
+    m_color(sf::Color(255, 255, 255).toInteger()),
+    m_radius(radius) {
     assert(count >= 3);
     assert(visibleCount <= count);
     update();

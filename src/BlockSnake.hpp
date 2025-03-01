@@ -114,7 +114,7 @@ private:
     void updateGame();
 
     sf::IntRect getInnerVisibleZone() const;
-    bool isCameraStopped(sf::Int64 nowTime) const;
+    bool isCameraStopped() const;
 
     // inner camera bias
     sf::Vector2f getCameraBias(sf::Int64 nowTime) const;

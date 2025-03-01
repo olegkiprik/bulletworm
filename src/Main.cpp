@@ -26,7 +26,7 @@
 #include "BlockSnake.hpp"
 #include <SFML/Main.hpp>
 
-int main(int argc, char** argv) {
+int main() {
 	Bulletworm::BlockSnake blockSnake;
     blockSnake.pwd = "";
 	return (blockSnake.start() ? EXIT_SUCCESS : EXIT_FAILURE);

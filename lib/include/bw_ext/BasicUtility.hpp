@@ -75,8 +75,8 @@ constexpr T divFloor(T first, U second) noexcept {
     if (first == T())
         return T();
     bool sgnNeg{
-        first > T() && second < U() ||
-        first < T() && second > U()
+        (first > T() && second < U()) ||
+        (first < T() && second > U())
     };
     T preres = first / second;
     T back = preres * second;

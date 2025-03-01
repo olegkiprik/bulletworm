@@ -292,11 +292,9 @@ bool LevelStatistics::saveToStream(OutputStream& stream, bool withEndianness) co
     assert(diffcnt <= DiffCountMax);
     assert(lvlcnt <= LevelCountMax);
 
-    const std::uint32_t* ctntdata = nullptr;
     std::int64_t ctntsize = 0;
     std::int64_t readctnt = 0;
 
-    ctntdata = m_first.data();
     ctntsize = (std::int64_t)sizeof(std::uint32_t) * m_first.size();
 
     // endianness
@@ -342,24 +340,19 @@ bool LevelStatistics::saveToStream(OutputStream& stream, bool withEndianness) co
     return true;
 }
 
-
-
-
-
-
 LevelStatistics::LevelStatistics() noexcept :
     m_first{} {}
 
 LevelStatistics::LevelStatistics(const LevelStatistics&) = default;
 
 LevelStatistics::LevelStatistics(LevelStatistics&& src) noexcept :
+    m_levelCompleted(std::move(src.m_levelCompleted)),
+    m_levelScores(std::move(src.m_levelScores)),
+    m_levelGameCounts(std::move(src.m_levelGameCounts)),
     m_first(std::move(src.m_first)),
     m_availableLevelCount(src.m_availableLevelCount),
-    m_levelCompleted(std::move(src.m_levelCompleted)),
-    m_levelGameCounts(std::move(src.m_levelGameCounts)),
-    m_levelScores(std::move(src.m_levelScores)),
-    m_totalGameCount(src.m_totalGameCount),
-    m_totalScore(src.m_totalScore) {
+    m_totalScore(src.m_totalScore),
+    m_totalGameCount(src.m_totalGameCount) {
     src.m_totalScore = 0;
     src.m_totalGameCount = 0;
     src.m_availableLevelCount = 0;

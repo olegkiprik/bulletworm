@@ -148,10 +148,10 @@ private:
     SpriteArray vabackgroundObjects;
     SpriteArray vaforegroundObjects;
 
-    sf::VertexBuffer vbbackgroundObjects;
-    sf::VertexBuffer vbforegroundObjects;
     sf::VertexBuffer vbscreens;
-
+    sf::VertexBuffer vbforegroundObjects;
+    sf::VertexBuffer vbbackgroundObjects;
+    
     SnakeDrawable snakeDrawable;
 
     // mess

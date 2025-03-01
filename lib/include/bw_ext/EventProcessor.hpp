@@ -140,7 +140,7 @@ inline void EventProcessor<time_t, mask_t, N>::updateLessTime() const noexcept {
         time_t minimum = NotActive;
 
         for (std::size_t i = 0; i < N; ++i)
-            if (m_eventTimes[i] < minimum && m_eventTimes[i] > NotActive || minimum == NotActive)
+            if ((m_eventTimes[i] < minimum && m_eventTimes[i] > NotActive) || minimum == NotActive)
                 minimum = m_eventTimes[i];
 
         m_lessTime = minimum;

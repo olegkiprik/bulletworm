@@ -72,9 +72,8 @@ private:
 
 	mutable std::mutex m_mutex;
 	std::list<sf::Sound> m_sounds;
-	std::thread m_thread;
 	std::atomic_bool m_threadWorks;
-
+	std::thread m_thread;
 };
 
 }

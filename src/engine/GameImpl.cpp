@@ -57,20 +57,20 @@ sf::Vector2i getRandomPosition(const Vec& probMap,
 namespace Bulletworm {
 
 GameImpl::GameImpl(GameImpl&& src) noexcept :
-    m_acceleration(src.m_acceleration),
+    m_snakeWorld(std::move(src.m_snakeWorld)),
+    m_levelPtrs(src.m_levelPtrs),
+    m_randomizers(std::move(src.m_randomizers)),
+    m_intiItemProbs(std::move(src.m_intiItemProbs)),
+    m_objectMemory(std::move(src.m_objectMemory)),
     m_aimedTailSize(src.m_aimedTailSize),
-    m_bonusCountToPowerup(src.m_bonusCountToPowerup),
+    m_harmlessLessStepID(src.m_harmlessLessStepID),
+    m_snakeDirection(src.m_snakeDirection),
+    m_acceleration(src.m_acceleration),
     m_effect(src.m_effect),
     m_fruitCountToBonus(src.m_fruitCountToBonus),
-    m_harmlessLessStepID(src.m_harmlessLessStepID),
-    m_intiItemProbs(std::move(src.m_intiItemProbs)),
-    m_levelPtrs(src.m_levelPtrs),
-    m_objectMemory(std::move(src.m_objectMemory)),
-    m_randomizers(std::move(src.m_randomizers)),
-    m_snakeDirection(src.m_snakeDirection),
-    m_snakeIsAlive(src.m_snakeIsAlive),
+    m_bonusCountToPowerup(src.m_bonusCountToPowerup),
     m_snakeIsMoving(src.m_snakeIsMoving),
-    m_snakeWorld(std::move(src.m_snakeWorld)) {
+    m_snakeIsAlive(src.m_snakeIsAlive) {
     src.m_intiItemProbs.fill(nullptr);
     src.m_levelPtrs = LevelPointers{};
     src.m_randomizers.fill(nullptr);
@@ -183,7 +183,6 @@ std::uintmax_t GameImpl::move() {
     // Accelerations can eliminate!
     Acceleration previousAcceleration = m_acceleration;
     Direction directionBefore = m_snakeDirection;
-    sf::Vector2i previousSnakePosition = m_snakeWorld.getCurrentSnakePosition();
 
     objectEffect(ObjectEffect::Pre);
 

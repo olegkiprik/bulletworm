@@ -351,11 +351,11 @@ void Game::innerRestart() noexcept {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 Game::Game(Game&& src) noexcept :
+    m_impl(std::move(src.m_impl)),
     m_eventProcessor(std::move(src.m_eventProcessor)),
     m_eventQueue(std::move(src.m_eventQueue)),
-    m_impl(std::move(src.m_impl)),
-    m_lastUpdateTimePoint(src.m_lastUpdateTimePoint),
-    m_rotationEvents(std::move(src.m_rotationEvents)) {
+    m_rotationEvents(std::move(src.m_rotationEvents)),
+    m_lastUpdateTimePoint(src.m_lastUpdateTimePoint) {
     src.m_lastUpdateTimePoint = 0;
     src.m_eventProcessor.clear();
 }
