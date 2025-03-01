@@ -55,6 +55,12 @@ enum class ColorDst;
 class BlockSnake {
 public:
 
+    // Word Wrap (shall be fixed!)
+    static sf::String getWord2fit(sf::String src,
+        float fitWidth,
+        unsigned int charSize,
+        const sf::Font& font);
+
     BlockSnake();
 
     [[nodiscard]] bool start();
