@@ -2037,7 +2037,8 @@ void BlockSnake::drawWindow() {
         const Vci& backPosition = m_snakeTailEnd;
         Vci backPositionInViewBiased = backPosition - leftTopInMap + Vci(1, 1);
 
-        if (m_snakeTailEndVisible && innerZone.contains(backPosition)) {
+        if (m_settings[(std::size_t)SettingEnum::SnakeHeadPointerEnabled] &&
+            m_snakeTailEndVisible && innerZone.contains(backPosition)) {
 
             sf::Vector2f currentBackSnakePosPtrPos;
             currentBackSnakePosPtrPos.x = float(backPositionInViewBiased.x * TexSz * 2 + TexSz) / 2;
@@ -2841,7 +2842,9 @@ void BlockSnake::processEvents() {
                        event.key.scancode == sf::Keyboard::Scancode::Numpad6) {
                 m_game.pushCommand(m_nowTime, Direction::Right);
                 m_rotatedPostEffect = false;
-            } else if (event.key.code == sf::Keyboard::P) {
+            } else if (event.key.code == sf::Keyboard::LShift ||
+                       event.key.code == sf::Keyboard::RShift ||
+                       event.key.code == sf::Keyboard::P) {
                 m_settings[(std::size_t)SettingEnum::SnakeHeadPointerEnabled] =
                     (std::uint32_t)!static_cast<bool>(
                     m_settings[(std::size_t)SettingEnum::SnakeHeadPointerEnabled]);
