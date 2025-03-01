@@ -23,9 +23,9 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "SpriteArray.hpp"
+#include <bw_ext/SpriteArray.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
-#include "Orientation.hpp"
+#include <bw_ext/const/Orientation.hpp>
 #include <cstring>
 
 namespace Bulletworm {

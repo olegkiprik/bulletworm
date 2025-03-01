@@ -25,7 +25,7 @@
 
 #include "GameDrawable.hpp"
 #include "Constants.hpp"
-#include "GraphicalUtility.hpp"
+#include <bw_ext/GraphicalUtility.hpp>
 
 namespace Bulletworm {
 

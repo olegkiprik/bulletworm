@@ -23,49 +23,36 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "PausableClock.hpp"
+#include <bw_ext/GraphicalUtility.hpp>
 
 namespace Bulletworm {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-PausableClock::PausableClock() noexcept :
-	PausableClock(Status::Running) {}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-PausableClock::PausableClock(Status status) noexcept :
-	m_status(status),
-	m_begin(clock_t::now()),
-	m_pauseDuration() {}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-void PausableClock::pause() noexcept {
-	if (m_status == Status::Running) {
-		m_status = Status::Paused;
-		m_pauseDuration = clock_t::now() - m_begin;
-	}
+std::uint32_t scaleColor(float ratio) noexcept {
+	return sf::Color(
+		std::uint8_t(std::min(255.f * 2 * (1.f - ratio), 255.f)),
+		std::uint8_t(std::min(255.f * ratio * 2, 255.f)),
+		0).toInteger();
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-void PausableClock::resume() noexcept {
-	if (m_status == Status::Paused) {
-		m_status = Status::Running;
-		m_begin += clock_t::now() - m_begin - m_pauseDuration;
-	}
+sf::IntRect createTexRect(int left, int top, int width, int height, unsigned int texSz) noexcept {
+	return sf::IntRect(left * texSz, top * texSz, width * texSz, height * texSz);
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-PausableClock::Status PausableClock::getStatus() const noexcept {
-	return m_status;
+sf::IntRect createTexRect(int left, int top, unsigned int texSz) noexcept {
+	return createTexRect(left, top, 1, 1, texSz);
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-PausableClock::duration_t PausableClock::getElapsed(clock_t::time_point now) const noexcept {
-	return (m_status == Status::Paused) ? m_pauseDuration : (now - m_begin);
+sf::IntRect getTextureUnitRect(int unit, unsigned int texSz, unsigned int texUnitWidth) noexcept {
+	int x = unit % texUnitWidth;
+	int y = unit / texUnitWidth;
+	return createTexRect(x, y, texSz);
 }
 
 }

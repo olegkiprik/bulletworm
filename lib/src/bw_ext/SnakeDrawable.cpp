@@ -23,8 +23,8 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "SnakeDrawable.hpp"
-#include "ObjectParameterEnums.hpp"
+#include <bw_ext/SnakeDrawable.hpp>
+#include <bw_ext/const/ObjectParameterEnums.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cmath>
 

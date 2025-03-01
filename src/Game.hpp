@@ -25,9 +25,9 @@
 
 #ifndef GAME_HPP
 #define GAME_HPP
-#include "EventProcessor.hpp"
-#include "EventEnums.hpp"
-#include "GameImpl.hpp"
+#include <bw_ext/EventProcessor.hpp>
+#include "engine/const/EventEnums.hpp"
+#include "engine/GameImpl.hpp"
 #include <list>
 
 namespace Bulletworm {

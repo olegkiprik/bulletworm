@@ -25,11 +25,11 @@
 
 #include "ObjectBehaviorLoader.hpp"
 #include <SFML/System/InputStream.hpp>
-#include "BasicUtility.hpp"
+#include <bw_ext/BasicUtility.hpp>
 #include <array>
 #include <unordered_map>
 #include <algorithm>
-#include "Endianness.hpp"
+#include <bw_ext/Endianness.hpp>
 
 namespace Bulletworm {
 

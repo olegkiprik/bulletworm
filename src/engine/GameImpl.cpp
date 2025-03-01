@@ -24,13 +24,13 @@
 ////////////////////////////////////////////////////////////
 
 #include "GameImpl.hpp"
-#include "AttribEnums.hpp"
-#include "ObjectEnums.hpp"
-#include "EventEnums.hpp"
+#include "const/AttribEnums.hpp"
+#include "const/ObjectEnums.hpp"
+#include "const/EventEnums.hpp"
 #include "ObjectBehavior.hpp"
-#include "ObjParamEnumUtility.hpp"
-#include "FenwickTree.hpp"
-#include "Randomizer.hpp"
+#include <bw_ext/ObjParamEnumUtility.hpp>
+#include <bw_ext/FenwickTree.hpp>
+#include <bw_ext/random/Randomizer.hpp>
 #include <cassert>
 
 namespace {

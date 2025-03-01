@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "Digits.hpp"
+#include <bw_ext/Digits.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cassert>
 

@@ -25,7 +25,7 @@
 
 #ifndef OBJ_PARAM_ENUM_UTILITY_HPP
 #define OBJ_PARAM_ENUM_UTILITY_HPP
-#include "ObjectParameterEnums.hpp"
+#include "const/ObjectParameterEnums.hpp"
 #include <SFML/System/Vector2.hpp>
 
 namespace Bulletworm {

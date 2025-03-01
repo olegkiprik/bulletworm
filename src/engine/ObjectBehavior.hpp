@@ -25,7 +25,7 @@
 
 #ifndef OBJECT_BEHAVIOR_HPP
 #define OBJECT_BEHAVIOR_HPP
-#include "ObjectEnums.hpp"
+#include "const/ObjectEnums.hpp"
 #include <vector>
 #include <optional>
 #include <bitset>

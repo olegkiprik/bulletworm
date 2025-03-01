@@ -24,11 +24,11 @@
 ////////////////////////////////////////////////////////////
 
 #include "SnakeWorld.hpp"
-#include "FenwickTree.hpp"
-#include "Randomizer.hpp"
-#include "ObjParamEnumUtility.hpp"
-#include "EventEnums.hpp"
-#include "Constants.hpp"
+#include <bw_ext/FenwickTree.hpp>
+#include <bw_ext/random/Randomizer.hpp>
+#include <bw_ext/ObjParamEnumUtility.hpp>
+#include "const/EventEnums.hpp"
+#include "const/EngineConstants.hpp"
 #include <cassert>
 
 namespace {

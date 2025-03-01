@@ -23,21 +23,49 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "RandomizerImpl.hpp"
+#include <bw_ext/PausableClock.hpp>
 
 namespace Bulletworm {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-RandomizerImpl::RandomizerImpl() {}
+PausableClock::PausableClock() noexcept :
+	PausableClock(Status::Running) {}
 
-void RandomizerImpl::setSeed(std::uint64_t seed) {
-    m_gen.seed(seed);
-    m_gen.discard(3);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+PausableClock::PausableClock(Status status) noexcept :
+	m_status(status),
+	m_begin(clock_t::now()),
+	m_pauseDuration() {}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+void PausableClock::pause() noexcept {
+	if (m_status == Status::Running) {
+		m_status = Status::Paused;
+		m_pauseDuration = clock_t::now() - m_begin;
+	}
 }
 
-std::uint64_t RandomizerImpl::get(std::uint64_t least, std::uint64_t greatest) {
-    std::uniform_int_distribution<std::uint64_t> distr(least, greatest);
-    return distr(m_gen);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+void PausableClock::resume() noexcept {
+	if (m_status == Status::Paused) {
+		m_status = Status::Running;
+		m_begin += clock_t::now() - m_begin - m_pauseDuration;
+	}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+PausableClock::Status PausableClock::getStatus() const noexcept {
+	return m_status;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+PausableClock::duration_t PausableClock::getElapsed(clock_t::time_point now) const noexcept {
+	return (m_status == Status::Paused) ? m_pauseDuration : (now - m_begin);
 }
 
 }

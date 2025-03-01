@@ -23,8 +23,8 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "ObjParamEnumUtility.hpp"
-#include "Orientation.hpp"
+#include <bw_ext/ObjParamEnumUtility.hpp>
+#include <bw_ext/const/Orientation.hpp>
 
 namespace Bulletworm {
 

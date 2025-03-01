@@ -24,10 +24,10 @@
 ////////////////////////////////////////////////////////////
 
 #include "CentralViewScreen.hpp"
-#include "Orientation.hpp"
-#include "ObjParamEnumUtility.hpp"
+#include <bw_ext/const/Orientation.hpp>
+#include <bw_ext/ObjParamEnumUtility.hpp>
 #include "Constants.hpp"
-#include "GraphicalUtility.hpp"
+#include <bw_ext/GraphicalUtility.hpp>
 #include <cassert>
 
 namespace Bulletworm {

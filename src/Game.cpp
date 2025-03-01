@@ -24,7 +24,7 @@
 ////////////////////////////////////////////////////////////
 
 #include "Game.hpp"
-#include "AttribEnums.hpp"
+#include "engine/const/AttribEnums.hpp"
 
 namespace Bulletworm {
 

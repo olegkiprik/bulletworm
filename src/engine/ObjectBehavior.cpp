@@ -24,9 +24,9 @@
 ////////////////////////////////////////////////////////////
 
 #include "ObjectBehavior.hpp"
-#include "Randomizer.hpp"
-#include "ObjectParameterEnums.hpp"
-#include "ObjParamEnumUtility.hpp"
+#include <bw_ext/random/Randomizer.hpp>
+#include <bw_ext/const/ObjectParameterEnums.hpp>
+#include <bw_ext/ObjParamEnumUtility.hpp>
 #include <forward_list>
 #include <cassert>
 

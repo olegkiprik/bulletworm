@@ -23,51 +23,26 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef LINGUISTIC_UTILITY_HPP
-#define LINGUISTIC_UTILITY_HPP
-#include "LanguageEnums.hpp"
-#include "ExternalConstants.hpp"
+#include <bw_ext/Endianness.hpp>
+#include <SFML/Config.hpp>
+
+#if defined(SFML_SYSTEM_WINDOWS)
+#include <WinSock2.h>
+#else
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#endif
 
 namespace Bulletworm {
 
-template<class T>
-constexpr LinguisticNumericType linguisticCountType(T count) noexcept;
-
-template<class T>
-void convertTime(T srcMicroseconds, T* timeArray) noexcept;
-
-template<class T>
-constexpr LinguisticNumericType linguisticCountType(T count) noexcept {
-	if (count == 1)
-		return LinguisticNumericType::Single;
-
-	if (count == 2)
-		return LinguisticNumericType::Dual;
-
-	if (count == 3 || count == 4)
-		return LinguisticNumericType::Paucal;
-
-	if (count % 10 == 1 && count % 100 != 11)
-		return LinguisticNumericType::SeparatedSingle;
-
-	if (count % 10 == 2 && count % 100 != 12)
-		return LinguisticNumericType::SeparatedDual;
-
-	if ((count % 10 == 3 || count % 10 == 4) &&
-		count % 100 != 13 && count % 100 != 14)
-		return LinguisticNumericType::SeparatedPaucal;
-
-	return LinguisticNumericType::Plural;
+// WHEN LOADING
+std::uint32_t n2hl(std::uint32_t network) {
+    return ntohl(network);
 }
 
-template<class T>
-void convertTime(T srcMicroseconds, T* timeArray) noexcept {
-	for (int i = 0; i < TimeUnitCount; ++i) {
-		timeArray[i] = srcMicroseconds / TimeUnitRatios[i];
-		srcMicroseconds -= timeArray[i] * TimeUnitRatios[i];
-	}
+// WHEN SAVING
+std::uint32_t h2nl(std::uint32_t host) {
+    return htonl(host);
 }
 
 }
-
-#endif // !LINGUISTIC_UTILITY_HPP

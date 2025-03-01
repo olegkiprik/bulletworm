@@ -23,8 +23,8 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef CONSTANTS_HPP
-#define CONSTANTS_HPP
+#ifndef ENGINE_CONSTANTS_HPP
+#define ENGINE_CONSTANTS_HPP
 
 #include <cstdint>
 
@@ -82,4 +82,4 @@ constexpr std::uint64_t StatusHillEncryptionModulus = 65537;
 
 }
 
-#endif // CONSTANTS_HPP
+#endif // ENGINE_CONSTANTS_HPP

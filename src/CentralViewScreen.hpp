@@ -27,11 +27,11 @@
 
 #ifndef CENTRAL_VIEW_SCREEN_HPP
 #define CENTRAL_VIEW_SCREEN_HPP
-#include "SpriteArray.hpp"
-#include "SnakeDrawable.hpp"
-#include "EatableItem.hpp"
+#include <bw_ext/SpriteArray.hpp>
+#include <bw_ext/SnakeDrawable.hpp>
+#include "engine/const/EatableItem.hpp"
 #include "GraphicalEnums.hpp"
-#include "ParticleSystem.hpp"
+#include <bw_ext/ParticleSystem.hpp>
 #include <SFML/Graphics/VertexBuffer.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>

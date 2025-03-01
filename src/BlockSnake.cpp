@@ -26,28 +26,28 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "BlockSnake.hpp"
-#include "FenwickTree.hpp"
+#include <bw_ext/FenwickTree.hpp>
 #include "TextureLoader.hpp"
 #include "Constants.hpp"
-#include "Endianness.hpp"
+#include <bw_ext/Endianness.hpp>
 #include "Word.hpp"
-#include "Orientation.hpp"
+#include <bw_ext/const/Orientation.hpp>
 #include "FilePaths.hpp"
 #include "InterfaceEnums.hpp"
-#include "FileOutputStream.hpp"
-#include "ExternalConstants.hpp"
+#include <bw_ext/stream/FileOutputStream.hpp>
+#include <bw_ext/const/ExternalConstants.hpp>
 #include "ObjectBehaviorLoader.hpp"
 #include "LanguageLoader.hpp"
-#include "LinguisticUtility.hpp"
-#include "ObjParamEnumUtility.hpp"
+#include <bw_ext/LinguisticUtility.hpp>
+#include <bw_ext/ObjParamEnumUtility.hpp>
 #include <SFML/System/FileInputStream.hpp>
 #include <SFML/System/MemoryInputStream.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include "MemoryOutputStream.hpp"
+#include <bw_ext/stream/MemoryOutputStream.hpp>
 #include <SFML/Audio/Listener.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Clipboard.hpp>
-#include "sha256.hpp"
+#include <bw_ext/sha256.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <optional>
 #include <cassert>

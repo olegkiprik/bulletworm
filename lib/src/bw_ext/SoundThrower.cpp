@@ -23,36 +23,72 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "GraphicalUtility.hpp"
+#include <bw_ext/SoundThrower.hpp>
+#include <vector>
+#include <algorithm>
 
 namespace Bulletworm {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-std::uint32_t scaleColor(float ratio) noexcept {
-	return sf::Color(
-		std::uint8_t(std::min(255.f * 2 * (1.f - ratio), 255.f)),
-		std::uint8_t(std::min(255.f * ratio * 2, 255.f)),
-		0).toInteger();
+SoundThrower::SoundThrower() :
+	m_mutex(),
+	m_sounds(),
+	m_threadWorks(true),
+	m_thread(&SoundThrower::threadFunc, this) {}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+SoundThrower::~SoundThrower() noexcept {
+	m_threadWorks.store(false);
+	m_thread.join();
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-sf::IntRect createTexRect(int left, int top, int width, int height, unsigned int texSz) noexcept {
-	return sf::IntRect(left * texSz, top * texSz, width * texSz, height * texSz);
+void SoundThrower::play(const sf::SoundBuffer& soundBuffer, const Parameters& parameters) {
+	std::lock_guard<std::mutex> lock(m_mutex);
+
+	sf::Sound& sound = m_sounds.emplace_back(soundBuffer);
+	sound.setAttenuation(parameters.attenuation);
+	sound.setMinDistance(parameters.minDistance);
+	sound.setPitch(parameters.pitch);
+	sound.setPlayingOffset(parameters.playingOffset);
+	sound.setPosition(parameters.position);
+	sound.setRelativeToListener(parameters.relativeToListener);
+	sound.setVolume(parameters.volume);
+
+	sound.play();
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-sf::IntRect createTexRect(int left, int top, unsigned int texSz) noexcept {
-	return createTexRect(left, top, 1, 1, texSz);
+void SoundThrower::threadFunc() {
+	for (;;) {
+		std::unique_lock<std::mutex> lock(m_mutex);
+
+		std::vector<sound_it_t> played;
+		played.reserve(m_sounds.size());
+
+		for (sound_it_t now = m_sounds.cbegin(); now != m_sounds.cend(); ++now)
+			if (now->getStatus() != sf::Sound::Playing)
+				played.push_back(now);
+
+		std::size_t nrSounds = m_sounds.size();
+
+		std::for_each(played.begin(), played.end(),
+					  [this](sound_it_t it) {
+						  m_sounds.erase(it);
+					  });
+
+		lock.unlock();
+
+		if (!m_threadWorks.load()) {
+			if (played.size() == nrSounds)
+				return;
+		}
+
+		std::this_thread::sleep_for(std::chrono::seconds(2));
+	}
 }
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-sf::IntRect getTextureUnitRect(int unit, unsigned int texSz, unsigned int texUnitWidth) noexcept {
-	int x = unit % texUnitWidth;
-	int y = unit / texUnitWidth;
-	return createTexRect(x, y, texSz);
-}
-
-}
+} // ex

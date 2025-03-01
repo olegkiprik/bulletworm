@@ -25,7 +25,7 @@
 
 #ifndef SOUND_PLAYER_HPP
 #define SOUND_PLAYER_HPP
-#include "SoundThrower.hpp"
+#include <bw_ext/SoundThrower.hpp>
 #include "AudioEnums.hpp"
 #include <SFML/Audio/SoundBuffer.hpp>
 #include <array>

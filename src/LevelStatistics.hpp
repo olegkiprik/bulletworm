@@ -25,7 +25,7 @@
 
 #ifndef LEVEL_STATISTICS_HPP
 #define LEVEL_STATISTICS_HPP
-#include "AttribEnums.hpp"
+#include "engine/const/AttribEnums.hpp"
 #include <vector>
 #include <array>
 #include <cstdint>

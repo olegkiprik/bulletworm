@@ -23,61 +23,51 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef OBJECT_BEHAVIOR_LOADER_HPP
-#define OBJECT_BEHAVIOR_LOADER_HPP
-#include "engine/ObjectBehavior.hpp"
-
-namespace sf {
-class InputStream;
-}
+#ifndef LINGUISTIC_UTILITY_HPP
+#define LINGUISTIC_UTILITY_HPP
+#include "const/LanguageEnums.hpp"
+#include "const/ExternalConstants.hpp"
 
 namespace Bulletworm {
 
-class ObjectBehavior;
-enum class ObjectCommand;
-enum class ObjectBehaviorKeyword;
+template<class T>
+constexpr LinguisticNumericType linguisticCountType(T count) noexcept;
 
-class ObjectBehaviorLoader {
-public:
+template<class T>
+void convertTime(T srcMicroseconds, T* timeArray) noexcept;
 
-    [[nodiscard]] static std::optional<std::string>
-        loadFromStream(std::vector<ObjectBehavior>& objBehvrs, sf::InputStream& stream, bool endiannessRequired);
+template<class T>
+constexpr LinguisticNumericType linguisticCountType(T count) noexcept {
+	if (count == 1)
+		return LinguisticNumericType::Single;
 
-private:
+	if (count == 2)
+		return LinguisticNumericType::Dual;
 
-    enum class LoaderKeyWord {
-        Comma,
-        Condition,
-        Command,
-        End
-    };
+	if (count == 3 || count == 4)
+		return LinguisticNumericType::Paucal;
 
-    enum class Context {
-        KeywordExpected,
-        InputingCommand,
-        InputingCommandExpr,
-        InputingConditionExpr,
-        Ended
-    };
+	if (count % 10 == 1 && count % 100 != 11)
+		return LinguisticNumericType::SeparatedSingle;
 
-    class StuffForCreating {
-    public:
+	if (count % 10 == 2 && count % 100 != 12)
+		return LinguisticNumericType::SeparatedDual;
 
-        [[nodiscard]] std::optional<std::string> createObject();
-        [[nodiscard]] bool inputCommand();
-        [[nodiscard]] std::optional<std::string> inputKeyword();
+	if ((count % 10 == 3 || count % 10 == 4) &&
+		count % 100 != 13 && count % 100 != 14)
+		return LinguisticNumericType::SeparatedPaucal;
 
-        std::vector<ObjectBehavior> objBehPrep;
+	return LinguisticNumericType::Plural;
+}
 
-        // Object behavior template to load
-        std::vector<std::vector<std::uint32_t>> condExp, modExp;
-        std::vector<ObjectCommand> obcommands;
-
-        Context context = Context::KeywordExpected;
-        std::uint32_t input = 0;
-    };
-};
+template<class T>
+void convertTime(T srcMicroseconds, T* timeArray) noexcept {
+	for (int i = 0; i < TimeUnitCount; ++i) {
+		timeArray[i] = srcMicroseconds / TimeUnitRatios[i];
+		srcMicroseconds -= timeArray[i] * TimeUnitRatios[i];
+	}
+}
 
 }
 
-#endif // !OBJECT_BEHAVIOR_LOADER_HPP
+#endif // !LINGUISTIC_UTILITY_HPP

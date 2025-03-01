@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "ChallengeVisual.hpp"
+#include <bw_ext/ChallengeVisual.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cmath>
 #include <cassert>

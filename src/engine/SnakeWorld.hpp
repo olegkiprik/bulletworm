@@ -26,10 +26,10 @@
 #ifndef SNAKE_WORLD_HPP
 #define SNAKE_WORLD_HPP
 #include <SFML/System/Vector2.hpp>
-#include "BasicUtility.hpp"
-#include "EatableItem.hpp"
-#include "ObjectParameterEnums.hpp"
-#include "Map.hpp"
+#include <bw_ext/BasicUtility.hpp>
+#include "const/EatableItem.hpp"
+#include <bw_ext/const/ObjectParameterEnums.hpp>
+#include <bw_ext/Map.hpp>
 #include <array>
 #include <vector>
 #include <unordered_set>

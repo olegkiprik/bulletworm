@@ -27,8 +27,8 @@
 #define GAME_DRAWABLE_HPP
 #include "CentralViewScreen.hpp"
 #include <SFML/Graphics/RectangleShape.hpp>
-#include "ChallengeVisual.hpp"
-#include "Digits.hpp"
+#include <bw_ext/ChallengeVisual.hpp>
+#include <bw_ext/Digits.hpp>
 
 namespace Bulletworm {
 

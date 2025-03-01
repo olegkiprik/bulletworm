@@ -29,10 +29,10 @@
 #include "Levels.hpp"
 #include "LevelStatistics.hpp"
 #include "GameDrawable.hpp"
-#include "PausableClock.hpp"
-#include "RandomizerImpl.hpp"
+#include <bw_ext/PausableClock.hpp>
+#include <bw_ext/random/RandomizerImpl.hpp>
 #include "SoundPlayer.hpp"
-#include "ObjectBehavior.hpp"
+#include "engine/ObjectBehavior.hpp"
 #include "LevelElements.hpp"
 #include <SFML/Graphics/Shader.hpp>
 #include <SFML/Audio/Music.hpp>

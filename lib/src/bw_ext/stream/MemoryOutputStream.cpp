@@ -49,7 +49,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "MemoryOutputStream.hpp"
+#include <bw_ext/stream/MemoryOutputStream.hpp>
 #include <cassert>
 #include <cstring>
 

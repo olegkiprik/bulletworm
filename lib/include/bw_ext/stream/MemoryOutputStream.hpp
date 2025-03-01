@@ -23,10 +23,15 @@
 //
 ////////////////////////////////////////////////////////////
 
+#ifndef MEMORY_OUTPUT_STREAM
+#define MEMORY_OUTPUT_STREAM
+
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-#include "FileOutputStream.hpp"
+#include "OutputStream.hpp"
+#include <cstdint>
+#include <vector>
 
 // the modification of SFML source files. Here's the notice:
 
@@ -57,103 +62,71 @@
 namespace Bulletworm {
 
 ////////////////////////////////////////////////////////////
-void FileOutputStream::FileCloser::operator()(std::FILE* file) noexcept {
-    std::fclose(file);
-}
-
-
+// Simple output file stream
 ////////////////////////////////////////////////////////////
-FileOutputStream::FileOutputStream() noexcept = default;
+class MemoryOutputStream : public OutputStream {
+public:
 
+    ////////////////////////////////////////////////////////////
+    // 
+    // Creates no stream (call open() to use)
+    // 
+    ////////////////////////////////////////////////////////////
+    MemoryOutputStream() noexcept;
 
-////////////////////////////////////////////////////////////
-FileOutputStream::~FileOutputStream() noexcept = default;
+    ////////////////////////////////////////////////////////////
+    // 
+    // Creates no stream (call open() to use)
+    // 
+    ////////////////////////////////////////////////////////////
+    explicit MemoryOutputStream(std::vector<std::uint8_t>& handle) noexcept;
 
+    ////////////////////////////////////////////////////////////
+    // 
+    // Returns true if succeed, otherwise false
+    // 
+    ////////////////////////////////////////////////////////////
+    void open(std::vector<std::uint8_t>& handle) noexcept;
 
-////////////////////////////////////////////////////////////
-FileOutputStream::FileOutputStream(FileOutputStream&& src) noexcept :
-    m_file(std::move(src.m_file)) {}
+    ////////////////////////////////////////////////////////////
+    // 
+    // Returns -1 if error occured, otherwise the actual count of written bytes.
+    // Param size in bytes
+    // 
+    ////////////////////////////////////////////////////////////
+    [[nodiscard]] std::int64_t write(const void* data, std::int64_t size) override;
 
+    ////////////////////////////////////////////////////////////
+    // 
+    // Returns -1 if error occured, otherwise the actual sought position
+    // All is in bytes
+    // 
+    ////////////////////////////////////////////////////////////
+    [[nodiscard]] std::int64_t seek(std::int64_t position) noexcept override;
 
-////////////////////////////////////////////////////////////
-FileOutputStream& FileOutputStream::operator=(FileOutputStream&& src) noexcept {
-    if (this == &src)
-        return *this;
+    ////////////////////////////////////////////////////////////
+    // 
+    // Returns -1 if error occured, otherwise the told position (in bytes)
+    // 
+    ////////////////////////////////////////////////////////////
+    [[nodiscard]] std::int64_t tell() noexcept override;
 
-    m_file = std::move(src.m_file);
-    return *this;
-}
+    ////////////////////////////////////////////////////////////
+    // 
+    // Returns -1 if error occured, otherwise the size of the stream in bytes
+    // 
+    ////////////////////////////////////////////////////////////
+    std::int64_t getSize() noexcept override;
 
+private:
 
-////////////////////////////////////////////////////////////
-bool FileOutputStream::open(const std::filesystem::path& filename) noexcept {
-
-// when using MS Visual Studio
-#if defined(_WIN32) && defined(_MSC_VER)
-
-    std::FILE* fptr = nullptr;
-
-    // Visual Studio tricks
-    (void)_wfopen_s(&fptr, filename.c_str(), L"wb");
-    m_file.reset(fptr);
-
-#elif !defined(_WIN32)
-    m_file.reset(std::fopen(filename.c_str(), "wb"));
-#else
-    #error not supported
-#endif
-
-    return m_file != nullptr;
-}
-
-
-////////////////////////////////////////////////////////////
-std::int64_t FileOutputStream::write(const void* data, std::int64_t size) noexcept {
-    if (m_file) {
-        std::size_t ret{ std::fwrite(data, 1, (std::size_t)size, m_file.get()) };
-        return (std::int64_t)ret;
-    } else {
-        return -1;
-    }
-}
-
-
-////////////////////////////////////////////////////////////
-std::int64_t FileOutputStream::seek(std::int64_t position) noexcept {
-    if (m_file) {
-        if (std::fseek(m_file.get(), (long)position, SEEK_SET))
-            return -1;
-
-        return tell();
-    } else {
-        return -1;
-    }
-}
-
-
-////////////////////////////////////////////////////////////
-std::int64_t FileOutputStream::tell() noexcept {
-    if (m_file) {
-        return std::ftell(m_file.get());
-    } else {
-        return -1;
-    }
-}
-
-
-////////////////////////////////////////////////////////////
-std::int64_t FileOutputStream::getSize() noexcept {
-    if (m_file) {
-        std::int64_t position = tell();
-        std::fseek(m_file.get(), 0, SEEK_END);
-        std::int64_t size = tell();
-
-        if (seek(position) == -1)
-            return -1;
-        return size;
-    } else {
-        return -1;
-    }
-}
+    ////////////////////////////////////////////////////////////
+    // Members
+    ////////////////////////////////////////////////////////////
+    std::vector<std::uint8_t>* m_memory;
+    std::int64_t m_pointer;
+};
 
 } // namespace Bulletworm
+
+#endif // !MEMORY_OUTPUT_STREAM

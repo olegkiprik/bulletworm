@@ -24,13 +24,13 @@
 ////////////////////////////////////////////////////////////
 
 #include "Levels.hpp"
-#include "FenwickTree.hpp"
+#include <bw_ext/FenwickTree.hpp>
 #include "Constants.hpp"
 #include <array>
-#include "AttribEnums.hpp"
+#include "engine/const/AttribEnums.hpp"
 #include <SFML/System/FileInputStream.hpp>
-#include "EatableItem.hpp"
-#include "Endianness.hpp"
+#include "engine/const/EatableItem.hpp"
+#include <bw_ext/Endianness.hpp>
 #include <cassert>
 
 namespace {

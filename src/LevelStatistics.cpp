@@ -25,10 +25,10 @@
 
 #include "LevelStatistics.hpp"
 #include "Constants.hpp"
-#include "OutputStream.hpp"
+#include <bw_ext/stream/OutputStream.hpp>
 #include <SFML/System/InputStream.hpp>
 #include <cassert>
-#include "Endianness.hpp"
+#include <bw_ext/Endianness.hpp>
 #include <algorithm>
 
 namespace {

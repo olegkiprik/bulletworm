@@ -23,26 +23,21 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "Endianness.hpp"
-#include <SFML/Config.hpp>
-
-#if defined(SFML_SYSTEM_WINDOWS)
-#include <WinSock2.h>
-#else
-#include <arpa/inet.h>
-#include <netinet/in.h>
-#endif
+#include <bw_ext/random/RandomizerImpl.hpp>
 
 namespace Bulletworm {
 
-// WHEN LOADING
-std::uint32_t n2hl(std::uint32_t network) {
-    return ntohl(network);
+////////////////////////////////////////////////////////////////////////////////////////////////////
+RandomizerImpl::RandomizerImpl() {}
+
+void RandomizerImpl::setSeed(std::uint64_t seed) {
+    m_gen.seed(seed);
+    m_gen.discard(3);
 }
 
-// WHEN SAVING
-std::uint32_t h2nl(std::uint32_t host) {
-    return htonl(host);
+std::uint64_t RandomizerImpl::get(std::uint64_t least, std::uint64_t greatest) {
+    std::uniform_int_distribution<std::uint64_t> distr(least, greatest);
+    return distr(m_gen);
 }
 
 }

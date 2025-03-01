@@ -25,7 +25,7 @@
 
 #include "LanguageLoader.hpp"
 #include <SFML/System/InputStream.hpp>
-#include "Endianness.hpp"
+#include <bw_ext/Endianness.hpp>
 #include <algorithm>
 
 namespace Bulletworm {

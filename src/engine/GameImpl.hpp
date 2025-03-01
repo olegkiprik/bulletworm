@@ -26,7 +26,7 @@
 #ifndef GAME_IMPL_HPP
 #define GAME_IMPL_HPP
 #include "SnakeWorld.hpp"
-#include "MiscEnum.hpp"
+#include "const/MiscEnum.hpp"
 
 /// Note that Snake has the factual direction when the snake
 /// has the tail. You can get it by getSnakeShape method.

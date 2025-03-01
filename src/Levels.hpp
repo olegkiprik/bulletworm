@@ -25,7 +25,7 @@
 
 #ifndef LEVELS_HPP
 #define LEVELS_HPP
-#include "EatableItem.hpp"
+#include "engine/const/EatableItem.hpp"
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 #include <cstdint>

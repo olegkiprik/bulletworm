@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "ParticleSystem.hpp"
+#include <bw_ext/ParticleSystem.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
 namespace Bulletworm {

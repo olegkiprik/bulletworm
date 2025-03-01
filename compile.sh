@@ -14,12 +14,16 @@ g++ \
 -ffast-math \
 src/*.c* \
 src/engine/*.c* \
+lib/src/bw_ext/*.c* \
+lib/src/bw_ext/random/*.c* \
+lib/src/bw_ext/stream/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/Audio/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/Graphics/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/Window/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/System/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/System/Unix/*.c* \
 $SFML_SRC_PATH/SFML-2.6.1/src/SFML/Window/Unix/*.c* \
+-I lib/include/ \
 -I $SFML_SRC_PATH/SFML-2.6.1/include/ \
 -I $SFML_SRC_PATH/SFML-2.6.1/src/ \
 -I $SFML_SRC_PATH/SFML-2.6.1/extlibs/headers/AL \
