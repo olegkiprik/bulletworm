@@ -64,8 +64,6 @@ constexpr std::uint32_t WidthMax = 0x1000;
 constexpr std::uint32_t HeightMin = 3;
 constexpr std::uint32_t HeightMax = 0x1000;
 
-constexpr std::size_t TriggerMapSize = (std::size_t)1 * 0x100000 + 1;
-
 // window config
 constexpr unsigned int ScaleYieldNumerator = 39;
 constexpr unsigned int ScaleYieldDenominator = 40;
