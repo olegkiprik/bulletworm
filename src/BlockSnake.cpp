@@ -985,6 +985,9 @@ bool BlockSnake::selectLevelProcessing() {
     return false;
 }
 
+sf::Int64 BlockSnake::getGameElapsedTime() const noexcept {
+    return m_gameClock.getElapsedTime<sf::Int64, std::micro>();
+}
 
 bool BlockSnake::playGame() {
 
@@ -1102,9 +1105,7 @@ bool BlockSnake::playGame() {
 
         // GAME LOOP
         while (!m_toExit) {
-            m_nowTime = m_gameClock.getElapsedTime<
-                sf::Int64,
-                std::micro>();
+            m_nowTime = getGameElapsedTime();
 
             processEvents();
 
@@ -3102,7 +3103,7 @@ void BlockSnake::endGame() {
   // Some links
     const std::uint32_t* plotPtr = m_levels.getLevelPlotDataPtr(m_difficulty, m_levelIndex);
 
-    m_currGameTimeElapsed = m_gameClock.getElapsedTime<sf::Int64, std::micro>();
+    m_currGameTimeElapsed = getGameElapsedTime();
 
     bool levelCompl = true;
 

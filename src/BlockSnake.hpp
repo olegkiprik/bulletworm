@@ -29,6 +29,7 @@
 #include "Levels.hpp"
 #include "LevelStatistics.hpp"
 #include "GameDrawable.hpp"
+#include <SFML/Config.hpp>
 #include <bw_ext/PausableClock.hpp>
 #include <bw_ext/random/RandomizerImpl.hpp>
 #include "SoundPlayer.hpp"
@@ -177,6 +178,9 @@ private:
 public:
     std::string pwd;
 private:
+
+    sf::Int64 getGameElapsedTime() const noexcept;
+
     sf::Image m_iconImg;
     std::vector<ObjectBehavior> m_objectBehaviors;
     std::vector<std::uint32_t> m_initialObjectMemory;
