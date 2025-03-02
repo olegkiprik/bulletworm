@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////
 //
 // Bulletworm - Advanced Snake Game
-// Copyright (c) 2024 Oleh Kiprik (oleg.kiprik@proton.me)
+// Copyright (c) 2024-2025 Oleh Kiprik (oleg.kiprik@proton.me)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
