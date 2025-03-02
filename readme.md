@@ -23,7 +23,7 @@ Execute the following commands with <kbd>$PWD</kbd> set to your repo clone. Make
 
 ## Compiling from source on Linux (advanced, should work on any distribution)
 
-Use the script *compile.sh*. [SFML sources](https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip)
+Use the script *compile.sh*. Set the variable SFML_SRC_PATH to your location of [SFML sources](https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip) directory (without *SFML-...* at the end).
 
 ## Screenshots
 
