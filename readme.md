@@ -10,7 +10,7 @@
 
 ## Installation
 
-Unpack the .tar.xz archive downloaded from Releases. Run the executable. Ready for a challenge?
+Unpack the .tar.xz archive downloaded from Releases. Run the executable. If failure occurs, then consider compiling from source.
 
 ## Compiling from source on Linux
 
@@ -21,7 +21,7 @@ Execute the following commands with <kbd>$PWD</kbd> set to your repo clone. Make
 
 <kbd>./bulletworm</kbd> to play
 
-## Compiling from source on Linux (advanced)
+## Compiling from source on Linux (advanced, should work on any distribution)
 
 Use the script *compile.sh*. [SFML sources](https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip)
 
