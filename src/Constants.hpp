@@ -78,6 +78,8 @@ constexpr unsigned int WindowModeRatioDenominator = 4;
 
 constexpr std::uint64_t StatusHillEncryptionModulus = 65537;
 
+constexpr std::size_t NrWallpaperQualities = 6;
+
 }
 
 #endif // CONSTANTS_HPP

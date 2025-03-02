@@ -26,6 +26,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "BlockSnake.hpp"
+#include <SFML/Config.hpp>
+#include <SFML/Graphics/Texture.hpp>
 #include <bw_ext/FenwickTree.hpp>
 #include "TextureLoader.hpp"
 #include "Constants.hpp"
@@ -544,10 +546,14 @@ bool BlockSnake::loadLists() {
 
 
 bool BlockSnake::loadWallpapers() {
+    std::size_t quality = getQuality();
+
     // wallpapers
     m_menuWallpaper = std::make_shared<sf::Texture>();
 
-    if (!m_menuWallpaper->loadFromFile(m_wallpaperTitles.front().string()))
+    if (!m_menuWallpaper->loadFromFile(
+        m_wallpaperTitles[m_wallpaperTitles.size() *
+            quality / NrWallpaperQualities].string()))
         return false;
 
     m_menuWallpaper->setSmooth(true);
@@ -860,6 +866,26 @@ bool BlockSnake::saveStatus() {
 }
 
 
+std::size_t BlockSnake::getQuality() const {
+    unsigned int maxTextureSize = sf::Texture::getMaximumSize();
+
+    if (maxTextureSize >= 0x2000) {
+        return 0;
+    } else if (maxTextureSize >= 0x1000) {
+        return 1;
+    } else if (maxTextureSize >= 0x800) {
+        return 2;
+    } else if (maxTextureSize >= 0x400) {
+        return 3;
+    } else if (maxTextureSize >= 0x200) {
+        return 4;
+    } else {
+        static_assert(5 < NrWallpaperQualities);
+        return 5;
+    }
+}
+
+
 void BlockSnake::changeWallpaper(unsigned int id,
                                  const sf::Vector2f& windowSize) {
   // m_menuWallpaper
@@ -868,12 +894,14 @@ void BlockSnake::changeWallpaper(unsigned int id,
   // m_2cachedWallpaperIndex
   // m_secondCachedWallpaper
 
+  std::size_t quality = getQuality();
+
   // zero -> zero
     if (id == 0 && m_menuWallpaper.get() == m_background.getTexture())
         return;
 
       // is it possible?
-    if (id >= m_wallpaperTitles.size())
+    if (id >= m_wallpaperTitles.size() / NrWallpaperQualities)
         return;
 
     bool changed = false;
@@ -899,7 +927,9 @@ void BlockSnake::changeWallpaper(unsigned int id,
                 m_secondCachedWallpaper = std::make_shared<sf::Texture>();
             }
 
-            if (m_secondCachedWallpaper->loadFromFile(m_wallpaperTitles[id].string())) {
+            if (m_secondCachedWallpaper->loadFromFile(m_wallpaperTitles[
+                    m_wallpaperTitles.size() *
+                    quality / NrWallpaperQualities + id].string())) {
                 m_secondCachedWallpaper->setSmooth(true);
                 m_2cachedWallpaperIndex = id;
                 m_background.setTexture(*m_secondCachedWallpaper, true);

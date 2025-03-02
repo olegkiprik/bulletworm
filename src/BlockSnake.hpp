@@ -100,6 +100,8 @@ private:
 
     // main loop
 
+    std::size_t getQuality() const;
+
     void changeWallpaper(unsigned int id, const sf::Vector2f& windowSize);
 
     void mainLoop();
