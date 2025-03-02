@@ -28,31 +28,6 @@
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <cmath>
 
-namespace {
-
-#if 0
-float getPolarLerp(float r1, float r2, float r12angle, float r1xangle) {
-    return (r1 * r2 * std::sin(r12angle) / (r1 * std::sin(r1xangle) + r2 * std::sin(r12angle - r1xangle)));
-}
-
-float getCurrentRadius(float angleInRad, float rad_gr, float rad_ls) {
-    constexpr float pi = 3.141592654f;
-    float angleInDeg = angleInRad * 180 / pi;
-    float angle5 = std::fmod(angleInDeg, 72);
-    bool incr = false;
-    if (angle5 > 36) {
-        incr = true;
-    }
-    if (incr) {
-        return getPolarLerp(rad_ls, rad_gr, 36 * pi / 180, pi* (angle5 - 36) / 180);
-    } else {
-        return getPolarLerp(rad_gr, rad_ls, 36 * pi / 180, pi* angle5 / 180);
-    }
-}
-#endif
-
-} // namespace
-
 namespace Bulletworm {
 
 void SnakeDrawable::clear() noexcept {
