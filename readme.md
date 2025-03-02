@@ -2,16 +2,26 @@
 
 # BulletWorm
 
-## Installation on Linux (the straightforward way)
+## Requirements
 
-To install the app on Linux via terminal, execute the following commands with <kbd>$PWD</kbd> set to your repo clone. Make sure you have [SFML](http://sfml-dev.org) 2.6.1 installed. If this version is not available, see the next section.
+- [ ] Sane system specifications. Emulation should be OK.
+- [ ] GNU/Linux on x86_64
+- [ ] [List of dependencies to install](https://www.sfml-dev.org/tutorials/2.6/compile-with-cmake.php#installing-dependencies)
+
+## Installation
+
+Unpack the .tar.xz archive downloaded from Releases. Run the executable. Ready for a challenge?
+
+## Compiling from source on Linux
+
+Execute the following commands with <kbd>$PWD</kbd> set to your repo clone. Make sure you have [SFML](http://sfml-dev.org) 2.6.1 installed. If this version is not available, see the next section.
 
 <kbd>time g++ src/\*.cpp src/engine/\*.c\* lib/src/bw_ext/\*.c\* lib/src/bw_ext/random/\*.c\* lib/src/bw_ext/stream/\*.c\* -o bulletworm -O2 -flto -DNDEBUG -march=native -pipe -W -std=c++17 -I lib/include/ -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
 </kbd> to compile and link
 
 <kbd>./bulletworm</kbd> to play
 
-## Installation on Linux (for hackers)
+## Compiling from source on Linux (advanced)
 
 Use the script *compile.sh*. [SFML sources](https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip)
 
