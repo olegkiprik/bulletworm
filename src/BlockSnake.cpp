@@ -2798,16 +2798,12 @@ void BlockSnake::drawChallVis(float shaderSecs) {
         m_window.draw(m_gameDrawable.challengeVisualOutline, &defchvissh);
     }
 
-    if (m_visualScore < m_currScore)
-        m_visualScore = (std::size_t)
-        std::min(((std::uintmax_t)m_visualScore * 10 +
-                 (std::uintmax_t)std::min(m_scoreVisualClock.restart().asMicroseconds(),
-                 (sf::Int64)100)) / 10, m_currScore);
-    else if (m_visualScore > m_currScore)
-        m_visualScore = (std::size_t)
-        std::max(((std::intmax_t)m_visualScore * 10 -
-                 (std::intmax_t)std::min(m_scoreVisualClock.restart().asMicroseconds(),
-                 (sf::Int64)1000)) / 10, (std::intmax_t)m_currScore);
+    std::size_t newVisScore = m_visualScore * 0.95 + m_currScore * 0.05;
+    if (newVisScore == m_visualScore) {
+        m_visualScore = m_currScore;
+    } else {
+        m_visualScore = newVisScore;
+    }
 
     m_gameDrawable.digits.setNumber(m_visualScore);
     m_window.draw(m_gameDrawable.digits);
