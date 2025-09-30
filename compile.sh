@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# export SFML_SRC_PATH first
+wget https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip
+unzip SFML-2.6.1*
+SFML_SRC_PATH=$PWD
+
 g++ \
 -pipe \
 -std=c++17 \
@@ -48,3 +51,6 @@ $SFML_SRC_PATH/SFML-2.6.1/src/SFML/Window/Unix/*.c* \
 -l Xcursor \
 -l vorbisfile \
 -l vorbisenc
+
+rm -rf SFML-2.6.1*
+SFML_SRC_PATH=

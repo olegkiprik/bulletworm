@@ -4,35 +4,27 @@
 
 ## Requirements
 
-- [ ] Moderate system specifications. Emulation should be OK.
-- [ ] GNU/Linux operating system on x86_64 architecture. With some tweaks, it should be possible to run the game on any other desktop OS.
+- [ ] A GNU/Linux operating system
 
 ## Installation
 
-Unpack the .tar.xz archive downloaded from Releases. Try to run the executable. If it fails, then consider compiling from source, see the instructions below.
+- [ ] Check if *wget*, *unzip* and *git* are available
 
-## Compiling from source on Linux
+- [ ] Install *gcc* plus *g++* or *clang* plus *clang++*. If the second one is chosen, don't forget to change the used compiler in compile.sh
 
-Execute the following commands inside the repo directory. Make sure you have [SFML](http://sfml-dev.org) 2.6.1 installed. If this version is not available on your distribution, read the next section.
+- [ ] [Install the listed libraries](https://www.sfml-dev.org/tutorials/2.6/compile-with-cmake.php#installing-dependencies)
 
-<kbd>time g++ src/\*.cpp src/engine/\*.c\* lib/src/bw_ext/\*.c\* lib/src/bw_ext/random/\*.c\* lib/src/bw_ext/stream/\*.c\* -o bulletworm -O2 -flto -DNDEBUG -march=native -pipe -W -std=c++17 -I lib/include/ -lsfml-system -lsfml-window -lsfml-graphics -lsfml-audio
-</kbd> to compile and link
+For example, on Debian 13 I had to install <kbd>libfreetype-dev libx11-dev libxrandr-dev libudev-dev libopengl-dev libflac-dev libvorbis-dev libopenal-dev libxcursor-dev libvulkan-dev libgl-dev</kbd>
 
-<kbd>./bulletworm</kbd> to play
+- [ ] Check and run the script:
 
-## Compiling from source on Linux (advanced, should work on any distribution)
+<kbd>./compile.sh</kbd>
 
-- [ ] [List of dependencies to install](https://www.sfml-dev.org/tutorials/2.6/compile-with-cmake.php#installing-dependencies)
+If the compilation process fails, it will hint missing depedencies.
 
-- [ ] Set the variable SFML_SRC_PATH to your location of [SFML sources](https://www.sfml-dev.org/files/SFML-2.6.1-sources.zip) directory (without *SFML-...* at the end). For example:
+- [ ] Run:
 
-<kbd>export SFML_SRC_PATH=~/Downloads/</kbd>
-
-- [ ] Run the script:
-
-<kbd>time ./compile.sh</kbd>
-
-It takes some time.
+<kbd>./bulletworm</kbd>
 
 ## Screenshots
 
