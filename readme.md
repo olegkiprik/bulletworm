@@ -1,4 +1,4 @@
-<img src="Resources/Textures/icon.png" alt="logo" width="60"/>
+<img src="x64/Release/Resources/Textures/icon.png" alt="logo" width="60"/>
 
 # BulletWorm
 
