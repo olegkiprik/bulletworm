@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\AudioEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BlockSnake.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CentralViewScreen.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Constants.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FilePaths.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Game.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameDrawable.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicalEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\InterfaceEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LanguageLoader.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LevelElements.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Levels.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LevelStatistics.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ObjectBehaviorLoader.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SoundPlayer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureLoader.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Word.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\GameImpl.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\ObjectBehavior.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\SnakeWorld.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\AttribEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\EatableItem.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\EngineConstants.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\EventEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\MiscEnum.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\engine\const\ObjectEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\BasicUtility.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\ChallengeVisual.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\Digits.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\Endianness.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\EventProcessor.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\FenwickTree.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\GraphicalUtility.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\LinguisticUtility.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\Map.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\ObjParamEnumUtility.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\ParticleSystem.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\PausableClock.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\sha256.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\SnakeDrawable.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\SoundThrower.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\SpriteArray.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\const\ExternalConstants.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\const\LanguageEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\const\ObjectParameterEnums.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\const\Orientation.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\random\Randomizer.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\random\RandomizerImpl.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\stream\FileOutputStream.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\stream\MemoryOutputStream.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lib\include\bw_ext\stream\OutputStream.hpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BlockSnake.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BlockSnakeMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CentralViewScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameDrawable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LanguageLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Levels.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LevelStatistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjectBehaviorLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SoundPlayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\GameImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\ObjectBehavior.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\engine\SnakeWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\ChallengeVisual.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\Digits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\Endianness.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\GraphicalUtility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\ObjParamEnumUtility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\ParticleSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\PausableClock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\sha256.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\SnakeDrawable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\SoundThrower.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\SpriteArray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\random\RandomizerImpl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\stream\FileOutputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lib\src\bw_ext\stream\MemoryOutputStream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="bulletworm.vcxproj" Id="b4f43a44-99c8-49a8-bcb0-efb16c856ce7" />
+</Solution>

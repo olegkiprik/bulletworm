@@ -26,32 +26,38 @@
 #ifndef FILE_PATHS_HPP
 #define FILE_PATHS_HPP
 
+#ifdef _WIN32
+#define BULLETWORM_PATH_PREFIX ""
+#else
+#define BULLETWORM_PATH_PREFIX "x64/Release/"
+#endif
+
 namespace Bulletworm {
 
 using ResourcePath = const char*;
 
-const ResourcePath CURSOR_PATH = "Resources/Textures/cursor.png";
-const ResourcePath ICON_PATH = "Resources/Textures/icon.png";
-const ResourcePath DIGITS_PATH = "Resources/Textures/digits.png";
+const ResourcePath CURSOR_PATH = BULLETWORM_PATH_PREFIX "Resources/Textures/cursor.png";
+const ResourcePath ICON_PATH = BULLETWORM_PATH_PREFIX "Resources/Textures/icon.png";
+const ResourcePath DIGITS_PATH = BULLETWORM_PATH_PREFIX "Resources/Textures/digits.png";
 
-const ResourcePath SOUND_PATH = "Resources/Sounds/";
-const ResourcePath MUSIC_PATH = "Resources/Music/";
-const ResourcePath TEXTURE_PATH = "Resources/Textures/";
-const ResourcePath WALLPAPER_PATH = "Resources/Wallpapers/";
-const ResourcePath FONT_PATH = "Resources/Fonts/";
-const ResourcePath LANGUAGE_PATH = "Resources/Languages/";
-const ResourcePath SHADER_PATH = "Resources/Shaders/";
+const ResourcePath SOUND_PATH = BULLETWORM_PATH_PREFIX "Resources/Sounds/";
+const ResourcePath MUSIC_PATH = BULLETWORM_PATH_PREFIX "Resources/Music/";
+const ResourcePath TEXTURE_PATH = BULLETWORM_PATH_PREFIX "Resources/Textures/";
+const ResourcePath WALLPAPER_PATH = BULLETWORM_PATH_PREFIX "Resources/Wallpapers/";
+const ResourcePath FONT_PATH = BULLETWORM_PATH_PREFIX "Resources/Fonts/";
+const ResourcePath LANGUAGE_PATH = BULLETWORM_PATH_PREFIX "Resources/Languages/";
+const ResourcePath SHADER_PATH = BULLETWORM_PATH_PREFIX "Resources/Shaders/";
 
-const ResourcePath MUSIC_LIST_PATH = "Resources/Lists/music.txt";
-const ResourcePath SOUND_LIST_PATH = "Resources/Lists/sounds.txt";
-const ResourcePath SHADER_LIST_PATH = "Resources/Lists/shaders.txt";
-const ResourcePath TEXTURE_LIST_PATH = "Resources/Lists/textures.txt";
-const ResourcePath WALLPAPER_LIST_PATH = "Resources/Lists/wallpapers.txt";
-const ResourcePath LANGUAGE_LIST_PATH = "Resources/Lists/languages.txt";
-const ResourcePath FONT_LIST_PATH = "Resources/Lists/fonts.txt";
+const ResourcePath MUSIC_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/music.txt";
+const ResourcePath SOUND_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/sounds.txt";
+const ResourcePath SHADER_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/shaders.txt";
+const ResourcePath TEXTURE_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/textures.txt";
+const ResourcePath WALLPAPER_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/wallpapers.txt";
+const ResourcePath LANGUAGE_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/languages.txt";
+const ResourcePath FONT_LIST_PATH = BULLETWORM_PATH_PREFIX "Resources/Lists/fonts.txt";
 
-const ResourcePath DATA_PATH = "Resources/data.bin";
-const ResourcePath STATUS_PATH = "Resources/status.bin";
+const ResourcePath DATA_PATH = BULLETWORM_PATH_PREFIX "Resources/data.bin";
+const ResourcePath STATUS_PATH = BULLETWORM_PATH_PREFIX "Resources/status.bin";
 
 const ResourcePath LOG_PATH = "logs.log";
 

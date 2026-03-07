@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="lib\include\bw_ext\BasicUtility.hpp" />
+    <ClInclude Include="lib\include\bw_ext\ChallengeVisual.hpp" />
+    <ClInclude Include="lib\include\bw_ext\const\ExternalConstants.hpp" />
+    <ClInclude Include="lib\include\bw_ext\const\LanguageEnums.hpp" />
+    <ClInclude Include="lib\include\bw_ext\const\ObjectParameterEnums.hpp" />
+    <ClInclude Include="lib\include\bw_ext\const\Orientation.hpp" />
+    <ClInclude Include="lib\include\bw_ext\Digits.hpp" />
+    <ClInclude Include="lib\include\bw_ext\Endianness.hpp" />
+    <ClInclude Include="lib\include\bw_ext\EventProcessor.hpp" />
+    <ClInclude Include="lib\include\bw_ext\FenwickTree.hpp" />
+    <ClInclude Include="lib\include\bw_ext\GraphicalUtility.hpp" />
+    <ClInclude Include="lib\include\bw_ext\LinguisticUtility.hpp" />
+    <ClInclude Include="lib\include\bw_ext\Map.hpp" />
+    <ClInclude Include="lib\include\bw_ext\ObjParamEnumUtility.hpp" />
+    <ClInclude Include="lib\include\bw_ext\ParticleSystem.hpp" />
+    <ClInclude Include="lib\include\bw_ext\PausableClock.hpp" />
+    <ClInclude Include="lib\include\bw_ext\random\Randomizer.hpp" />
+    <ClInclude Include="lib\include\bw_ext\random\RandomizerImpl.hpp" />
+    <ClInclude Include="lib\include\bw_ext\sha256.hpp" />
+    <ClInclude Include="lib\include\bw_ext\SnakeDrawable.hpp" />
+    <ClInclude Include="lib\include\bw_ext\SoundThrower.hpp" />
+    <ClInclude Include="lib\include\bw_ext\SpriteArray.hpp" />
+    <ClInclude Include="lib\include\bw_ext\stream\FileOutputStream.hpp" />
+    <ClInclude Include="lib\include\bw_ext\stream\MemoryOutputStream.hpp" />
+    <ClInclude Include="lib\include\bw_ext\stream\OutputStream.hpp" />
+    <ClInclude Include="src\AudioEnums.hpp" />
+    <ClInclude Include="src\BlockSnake.hpp" />
+    <ClInclude Include="src\CentralViewScreen.hpp" />
+    <ClInclude Include="src\Constants.hpp" />
+    <ClInclude Include="src\engine\const\AttribEnums.hpp" />
+    <ClInclude Include="src\engine\const\EatableItem.hpp" />
+    <ClInclude Include="src\engine\const\EngineConstants.hpp" />
+    <ClInclude Include="src\engine\const\EventEnums.hpp" />
+    <ClInclude Include="src\engine\const\MiscEnum.hpp" />
+    <ClInclude Include="src\engine\const\ObjectEnums.hpp" />
+    <ClInclude Include="src\engine\GameImpl.hpp" />
+    <ClInclude Include="src\engine\ObjectBehavior.hpp" />
+    <ClInclude Include="src\engine\SnakeWorld.hpp" />
+    <ClInclude Include="src\FilePaths.hpp" />
+    <ClInclude Include="src\Game.hpp" />
+    <ClInclude Include="src\GameDrawable.hpp" />
+    <ClInclude Include="src\GraphicalEnums.hpp" />
+    <ClInclude Include="src\InterfaceEnums.hpp" />
+    <ClInclude Include="src\LanguageLoader.hpp" />
+    <ClInclude Include="src\LevelElements.hpp" />
+    <ClInclude Include="src\Levels.hpp" />
+    <ClInclude Include="src\LevelStatistics.hpp" />
+    <ClInclude Include="src\ObjectBehaviorLoader.hpp" />
+    <ClInclude Include="src\SoundPlayer.hpp" />
+    <ClInclude Include="src\TextureLoader.hpp" />
+    <ClInclude Include="src\Word.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="lib\src\bw_ext\ChallengeVisual.cpp" />
+    <ClCompile Include="lib\src\bw_ext\Digits.cpp" />
+    <ClCompile Include="lib\src\bw_ext\Endianness.cpp" />
+    <ClCompile Include="lib\src\bw_ext\GraphicalUtility.cpp" />
+    <ClCompile Include="lib\src\bw_ext\ObjParamEnumUtility.cpp" />
+    <ClCompile Include="lib\src\bw_ext\ParticleSystem.cpp" />
+    <ClCompile Include="lib\src\bw_ext\PausableClock.cpp" />
+    <ClCompile Include="lib\src\bw_ext\random\RandomizerImpl.cpp" />
+    <ClCompile Include="lib\src\bw_ext\sha256.cpp" />
+    <ClCompile Include="lib\src\bw_ext\SnakeDrawable.cpp" />
+    <ClCompile Include="lib\src\bw_ext\SoundThrower.cpp" />
+    <ClCompile Include="lib\src\bw_ext\SpriteArray.cpp" />
+    <ClCompile Include="lib\src\bw_ext\stream\FileOutputStream.cpp" />
+    <ClCompile Include="lib\src\bw_ext\stream\MemoryOutputStream.cpp" />
+    <ClCompile Include="src\BlockSnake.cpp" />
+    <ClCompile Include="src\BlockSnakeMenu.cpp" />
+    <ClCompile Include="src\CentralViewScreen.cpp" />
+    <ClCompile Include="src\engine\GameImpl.cpp" />
+    <ClCompile Include="src\engine\ObjectBehavior.cpp" />
+    <ClCompile Include="src\engine\SnakeWorld.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameDrawable.cpp" />
+    <ClCompile Include="src\LanguageLoader.cpp" />
+    <ClCompile Include="src\Levels.cpp" />
+    <ClCompile Include="src\LevelStatistics.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\ObjectBehaviorLoader.cpp" />
+    <ClCompile Include="src\SoundPlayer.cpp" />
+    <ClCompile Include="src\TextureLoader.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>18.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b4f43a44-99c8-49a8-bcb0-efb16c856ce7}</ProjectGuid>
+    <RootNamespace>bulletworm</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML2\include;$(SolutionDir)lib\include</AdditionalIncludeDirectories>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\SFML2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Ws2_32.lib;sfml-audio-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\SFML2\include;$(SolutionDir)lib\include</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\SFML2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Ws2_32.lib;sfml-audio.lib;sfml-system.lib;sfml-window.lib;sfml-graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
