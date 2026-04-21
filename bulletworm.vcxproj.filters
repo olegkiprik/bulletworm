@@ -129,9 +129,6 @@
     <ClInclude Include="lib\include\bw_ext\PausableClock.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="lib\include\bw_ext\sha256.hpp">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="lib\include\bw_ext\SnakeDrawable.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -234,9 +231,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\src\bw_ext\PausableClock.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="lib\src\bw_ext\sha256.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="lib\src\bw_ext\SnakeDrawable.cpp">

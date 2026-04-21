@@ -37,7 +37,6 @@
     <ClInclude Include="lib\include\bw_ext\PausableClock.hpp" />
     <ClInclude Include="lib\include\bw_ext\random\Randomizer.hpp" />
     <ClInclude Include="lib\include\bw_ext\random\RandomizerImpl.hpp" />
-    <ClInclude Include="lib\include\bw_ext\sha256.hpp" />
     <ClInclude Include="lib\include\bw_ext\SnakeDrawable.hpp" />
     <ClInclude Include="lib\include\bw_ext\SoundThrower.hpp" />
     <ClInclude Include="lib\include\bw_ext\SpriteArray.hpp" />
@@ -80,7 +79,6 @@
     <ClCompile Include="lib\src\bw_ext\ParticleSystem.cpp" />
     <ClCompile Include="lib\src\bw_ext\PausableClock.cpp" />
     <ClCompile Include="lib\src\bw_ext\random\RandomizerImpl.cpp" />
-    <ClCompile Include="lib\src\bw_ext\sha256.cpp" />
     <ClCompile Include="lib\src\bw_ext\SnakeDrawable.cpp" />
     <ClCompile Include="lib\src\bw_ext\SoundThrower.cpp" />
     <ClCompile Include="lib\src\bw_ext\SpriteArray.cpp" />
