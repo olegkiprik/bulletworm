@@ -47,7 +47,6 @@
 #include <SFML/Audio/Listener.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Clipboard.hpp>
-#include <bw_ext/sha256.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <optional>
 #include <cassert>

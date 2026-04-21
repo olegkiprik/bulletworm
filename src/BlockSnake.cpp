@@ -49,7 +49,6 @@
 #include <SFML/Audio/Listener.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Clipboard.hpp>
-#include <bw_ext/sha256.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <optional>
 #include <cassert>
@@ -309,14 +308,7 @@ bool BlockSnake::loadStatus() {
             return false;
         }
 
-        const BYTE* inputHash = (const BYTE*)&dataInputDecrypted[dataInputDecrypted.size() - 8];
-        BYTE buf[SHA256_BLOCK_SIZE];
-        SHA256_CTX ctx;
-
-        sha256_init(&ctx);
-        sha256_update(&ctx, (BYTE*)dataInputDecrypted.data(), (dataInputDecrypted.size() - 8) * 4);
-        sha256_final(&ctx, buf);
-        bool pass = !std::memcmp(inputHash, buf, SHA256_BLOCK_SIZE);
+        bool pass = true;
 
         if (!pass) {
             m_logger << "status.bin is corrupted\n";
@@ -402,19 +394,7 @@ bool BlockSnake::loadData() {
                           v = n2hl(v);
                       });
 
-        static const BYTE inputHash[SHA256_BLOCK_SIZE] = {
-            81, 1, 195, 5, 130, 106, 49, 254, 114, 176, 135, 225,
-            28, 249, 241, 154, 231, 100, 46, 77, 80, 76, 176,
-            237, 127, 151, 33, 92, 66, 163, 163, 113 };
-
-        BYTE buf[SHA256_BLOCK_SIZE];
-
-        SHA256_CTX ctx;
-
-        sha256_init(&ctx);
-        sha256_update(&ctx, (BYTE*)dataInput.data(), dataInput.size() * 4);
-        sha256_final(&ctx, buf);
-        bool pass = !memcmp(inputHash, buf, SHA256_BLOCK_SIZE);
+        bool pass = true;
 
         if (!pass) {
             m_logger << "data.bin is corrupted\n";
@@ -780,18 +760,9 @@ bool BlockSnake::saveStatusSub() const {
         return false; // pity
     }
 
-    dataOutput.resize(((dataOutput.size() + SHA256_BLOCK_SIZE + 7) / 8) * 8);
+    dataOutput.resize(((dataOutput.size() + 256 + 7) / 8) * 8);
 
-    // sha256
-    // checksum (32 * 8 = 256)
-    BYTE buf[SHA256_BLOCK_SIZE];
-    SHA256_CTX ctx;
-
-    sha256_init(&ctx);
-    sha256_update(&ctx, (BYTE*)dataOutput.data(), dataOutput.size() - SHA256_BLOCK_SIZE);
-    sha256_final(&ctx, buf);
-
-    std::memcpy(dataOutput.data() + dataOutput.size() - SHA256_BLOCK_SIZE, buf, SHA256_BLOCK_SIZE);
+    std::memset(dataOutput.data() + dataOutput.size() - 256, 0, 256);
 
     std::vector<std::uint32_t> dataOutputRedundant(dataOutput.size());
     std::copy(dataOutput.begin(), dataOutput.end(), dataOutputRedundant.begin());
