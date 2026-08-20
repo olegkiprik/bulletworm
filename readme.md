@@ -35,6 +35,10 @@ For example, on Debian 13 I had to install <kbd>libfreetype-dev libx11-dev libxr
 
 - [ ] Run the application in *x64/Release*
 
+## Playing
+
+See my [speedruns](https://www.youtube.com/playlist?list=PLT9UNLg4vPkc)
+
 ## Screenshots
 
 ![Image 1](demo/screenshot_01.jpg)
